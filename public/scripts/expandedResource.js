@@ -1,6 +1,12 @@
 $(() => {
   const resource_id = window.location.href.split("/").reverse()[0];
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   $("#postComment").submit(function(event) {
     event.preventDefault();
 
@@ -36,7 +42,7 @@ $(() => {
           <span>${commentObj.user_name}</span>
         </div>
       </header>
-      <p class="commentContent">${commentObj.message}</p>
+      <p class="commentContent">${escape(commentObj.message)}</p>
       <footer>
         <span>${commentObj.created_at_pst}</span>
         </span>

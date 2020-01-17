@@ -91,72 +91,6 @@
             alt="Category image"
           />
         </div>
-
-        <footer style="font-size: 0.8rem" class="text-muted">
-
-        <div class="likes-section">
-          <i id="<%= data[i].id %>"
-          <% if(user.likes.includes(data[i].id)) {%>
-            class="liked fas fa-heart"
-          <% } else {%>
-            class="not-liked fas fa-heart"
-          <% }%>
-          ></i>
-          <p><%= data[i].number_of_likes %></p>
-        </div>
-
-          <a href="/api/resources/<%= data[i].id %>"
-            ><i class="far fa-comment-dots"></i
-          ></a>
-            <p style="margin-bottom: 0" id="avg_rating_of_<%= data[i].id %>">Avg. Rating: <%= data[i].average_rating %></p>
-          <form class="rating">
-            <input
-              id="rating-5_<%= data[i].id %>"
-              type="radio"
-              name="rating"
-              value="5"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == data[i].id) { %> <% if(rating[1] == 5) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-5_<%= data[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-4_<%= data[i].id %>"
-              type="radio"
-              name="rating"
-              value="4"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == data[i].id) { %> <% if(rating[1] == 4) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-4_<%= data[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-3_<%= data[i].id %>"
-              type="radio"
-              name="rating"
-              value="3"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == data[i].id) { %> <% if(rating[1] == 3) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-3_<%= data[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-2_<%= data[i].id %>"
-              type="radio"
-              name="rating"
-              value="2"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == data[i].id) { %> <% if(rating[1] == 2) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-2_<%= data[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-1_<%= data[i].id %>"
-              type="radio"
-              name="rating"
-              value="1"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == data[i].id) { %> <% if(rating[1] == 1) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-1_<%= data[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-          </form>
-        </footer>
       </div>
 
           <% }%>
@@ -218,77 +152,14 @@
             alt="Category image"
           />
         </div>
-
-        <footer style="font-size: 0.8rem" class="text-muted">
-
-        <div class="likes-section">
-          <i id="<%= likesArr[i].id %>"
-          <% if(user.likes.includes(likesArr[i].id)) {%>
-            class="liked fas fa-heart"
-          <% } else {%>
-            class="not-liked fas fa-heart"
-          <% }%>
-          ></i>
-          <p><%= likesArr[i].number_of_likes %></p>
-        </div>
-
-          <a href="/api/resources/<%= likesArr[i].id %>"
-            ><i class="far fa-comment-dots"></i
-          ></a>
-            <p style="margin-bottom: 0" id="avg_rating_of_<%= likesArr[i].id %>">Avg. Rating: <%= likesArr[i].average_rating %></p>
-          <form class="rating">
-            <input
-              id="rating-5_<%= likesArr[i].id %>"
-              type="radio"
-              name="rating"
-              value="5"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == likesArr[i].id) { %> <% if(rating[1] == 5) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-5_<%= likesArr[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-4_<%= likesArr[i].id %>"
-              type="radio"
-              name="rating"
-              value="4"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == likesArr[i].id) { %> <% if(rating[1] == 4) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-4_<%= likesArr[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-3_<%= likesArr[i].id %>"
-              type="radio"
-              name="rating"
-              value="3"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == likesArr[i].id) { %> <% if(rating[1] == 3) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-3_<%= likesArr[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-2_<%= likesArr[i].id %>"
-              type="radio"
-              name="rating"
-              value="2"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == likesArr[i].id) { %> <% if(rating[1] == 2) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-2_<%= likesArr[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-            <input
-              id="rating-1_<%= likesArr[i].id %>"
-              type="radio"
-              name="rating"
-              value="1"
-              <% for(rating of user.ratings) {%> <% if(rating[0] == likesArr[i].id) { %> <% if(rating[1] == 1) { %> <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-1_<%= likesArr[i].id %>"
-              ><i class="fas fa-star"></i
-            ></label>
-          </form>
-        </footer>
       </div>
         <% }%>
       </div>
     </div>
 
   </div>
+
+  <hr style="border: 1.5px solid black">
+
   </body>
 </html>

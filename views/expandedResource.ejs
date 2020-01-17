@@ -33,7 +33,7 @@
   </head>
   <body>
     <%-include("./partials/header") %>
-
+    
     <div class="post-sidebar">
       <div class="card">
         <header>
@@ -184,7 +184,11 @@
             ></label>
           </form>
 
-          <%= data[0].created_at_pst %>
+          <div>
+            <%= data[0].created_at_pst %>
+            <%= data[0].fromNow %>
+          </div>
+          
         </footer>
       </div>
     </div>
@@ -203,5 +207,6 @@
 
       <section id="all-comments"></section>
     </div>
+
   </body>
 </html>

@@ -46,8 +46,6 @@ module.exports = db => {
         }
       }
 
-      console.log(likesArr);
-
       res.render("myResources", { data, user, likesArr });
       res.status(200);
     });
@@ -91,6 +89,7 @@ module.exports = db => {
       const user = res.locals.user;
 
       for (resource of data) {
+        resource.fromNow = moment(resource.created_at).fromNow();
         resource.created_at_pst = moment(resource.created_at_pst).format(
           "dddd, MMMM Do YYYY, h:mm:ss a"
         );
@@ -119,6 +118,7 @@ module.exports = db => {
       const user = res.locals.user;
 
       for (resource of data) {
+        resource.fromNow = moment(resource.created_at).fromNow();
         resource.created_at_pst = moment(resource.created_at_pst).format(
           "dddd, MMMM Do YYYY, h:mm:ss a"
         );
@@ -134,6 +134,7 @@ module.exports = db => {
 
     databaseFuncs.fetchComments(db, resource_id).then(comments => {
       for (comment of comments) {
+        comment.fromNow = moment(resource.created_at).fromNow();
         comment.created_at_pst = moment(comment.created_at_pst).format(
           "dddd, MMMM Do YYYY, h:mm:ss a"
         );
@@ -150,6 +151,7 @@ module.exports = db => {
     databaseFuncs.addNewComment(db, newCommentParams).then(resource_id => {
       databaseFuncs.fetchComments(db, resource_id).then(comments => {
         for (comment of comments) {
+          comment.fromNow = moment(resource.created_at).fromNow();
           comment.created_at_pst = moment(comment.created_at_pst).format(
             "dddd, MMMM Do YYYY, h:mm:ss a"
           );
@@ -211,7 +213,7 @@ module.exports = db => {
         action = "update";
       }
     }
-    console.log(action);
+
     if (action === "update") {
       databaseFuncs
         .updateRatings(db, ratingParams)

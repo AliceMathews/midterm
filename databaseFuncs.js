@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 
 //USERS
 //Get a single user from the database given their email
-const getUserWithEmail = function(db, loginInput) {
+const getUserWithEmail = (db, loginInput) => {
   let queryParams = [loginInput.email];
   let queryString = `
     SELECT *
@@ -25,7 +25,7 @@ const getUserWithEmail = function(db, loginInput) {
 exports.getUserWithEmail = getUserWithEmail;
 
 //Get a single user from the database given their id
-const getUserWithId = function(db, userId) {
+const getUserWithId = (db, userId) => {
   let queryParams = [userId];
   let queryString = `
     SELECT *
@@ -43,9 +43,8 @@ const getUserWithId = function(db, userId) {
 exports.getUserWithId = getUserWithId;
 
 //Edit current user profile
-const updateUserWithId = function(db, newUserParams) {
+const updateUserWithId = (db, newUserParams) => {
   let queryParams = [];
-
   let queryString = `
     UPDATE users `;
 
@@ -99,13 +98,12 @@ const updateUserWithId = function(db, newUserParams) {
 exports.updateUserWithId = updateUserWithId;
 
 //Add a new user to the database
-const addUser = function(db, newUserParams) {
+const addUser = (db, newUserParams) => {
   let queryParams = [
     newUserParams.name,
     newUserParams.email,
     bcrypt.hashSync(newUserParams.password, 10)
   ];
-
   let queryString = `
       INSERT INTO users `;
   if (newUserParams.profile_pic) {
@@ -134,7 +132,7 @@ exports.addUser = addUser;
 
 ///RESOURCES
 //get all resources depending on the options
-const getAllResources = function(db, options, limit = 20) {
+const getAllResources = (db, options, limit = 20) => {
   const queryParams = [];
   let queryString = `
     SELECT resources.*, users.name as owner_name, users.profile_pic as owner_profile_pic, categories.thumbnail as category_thumbnail, count(likes.resource_id) as number_of_likes, average_rating
@@ -196,18 +194,9 @@ const getAllResources = function(db, options, limit = 20) {
 };
 exports.getAllResources = getAllResources;
 
-const getAverageRatings = function(db) {
-  const queryParams = [];
-  let queryString = `
-
-  `;
-};
-exports.getAverageRatings = getAverageRatings;
-
 ////get resource from resource_id
-const getResourceFromId = function(db, resource_id) {
+const getResourceFromId = (db, resource_id) => {
   const queryParams = [resource_id];
-
   let queryString = `
     SELECT resources.*, resources.created_at at time zone 'utc' at time zone 'pst' as created_at_pst, users.name as owner_name, users.profile_pic as owner_profile_pic, categories.thumbnail as category_thumbnail, count(likes.resource_id) as number_of_likes, average_rating
     FROM resources
@@ -232,7 +221,7 @@ const getResourceFromId = function(db, resource_id) {
 exports.getResourceFromId = getResourceFromId;
 
 //// Add new resource
-const addResource = function(db, newResourceParams) {
+const addResource = (db, newResourceParams) => {
   const queryParams = [
     newResourceParams.owner_id,
     newResourceParams.category_id,
@@ -263,7 +252,7 @@ const addResource = function(db, newResourceParams) {
 exports.addResource = addResource;
 
 //// Delete a resource
-const deleteResource = function(db, resource_Id) {
+const deleteResource = (db, resource_Id) => {
   let queryParams = [resource_Id];
   let queryString = `
     UPDATE resources
@@ -280,7 +269,6 @@ const deleteResource = function(db, resource_Id) {
 exports.deleteResource = deleteResource;
 
 //// Edit an existing resource
-//// THIS ROUTE HAS NOT BEEN TESTED, HIGHLY DEPENDENT ON FRONTEND ////
 const editResource = (db, newResourceParams) => {
   let queryParams = [];
   let queryString = `
@@ -327,7 +315,6 @@ exports.editResource = editResource;
 
 const fetchComments = (db, resource_id) => {
   queryParams = [resource_id];
-
   queryString = `
     SELECT comments.*, comments.created_at at time zone 'utc' at time zone 'pst' as created_at_pst, users.name as user_name, users.profile_pic as user_profile_pic
     FROM comments
@@ -345,16 +332,8 @@ const fetchComments = (db, resource_id) => {
 exports.fetchComments = fetchComments;
 
 //add a new like
-const addLike = function(db, likeParams) {
+const addLike = (db, likeParams) => {
   const queryParams = [likeParams.user_id, likeParams.resource_id];
-  // let queryString = `
-  //   INSERT INTO likes (user_id, resource_id)
-  //   VALUES ($1, $2)
-  //   RETURNING (SELECT count(likes.resource_id)
-  //         FROM likes
-  //         GROUP BY resource_id
-  //         HAVING resource_id = $2)`;
-
   let queryString = `
     INSERT INTO likes (user_id, resource_id)
     VALUES ($1, $2)
@@ -370,7 +349,7 @@ const addLike = function(db, likeParams) {
 };
 exports.addLike = addLike;
 
-const countLikes = function(db, resource_id) {
+const countLikes = (db, resource_id) => {
   const queryParams = [resource_id];
   const queryString = `
     SELECT count(likes.resource_id)
@@ -399,7 +378,6 @@ const addNewComment = (db, newCommentParams) => {
     VALUES ($1, $2, $3)
     RETURNING *;`;
 
-  console.log(queryString, queryParams);
   return db
     .query(queryString, queryParams)
     .then(res => res.rows[0].resource_id)
@@ -409,7 +387,7 @@ const addNewComment = (db, newCommentParams) => {
 };
 exports.addNewComment = addNewComment;
 
-const getLikeId = function(db, user_id, resource_id) {
+const getLikeId = (db, user_id, resource_id) => {
   const queryParams = [user_id, resource_id];
   const queryString = `
     SELECT id
@@ -427,7 +405,7 @@ const getLikeId = function(db, user_id, resource_id) {
 };
 exports.getLikeId = getLikeId;
 
-const deleteLike = function(db, like_id) {
+const deleteLike = (db, like_id) => {
   const queryParams = [like_id];
   const queryString = `
     DELETE FROM likes
