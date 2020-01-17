@@ -33,7 +33,7 @@
   </head>
   <body>
     <%-include("./partials/header") %>
-    
+
     <div class="post-sidebar">
       <div class="card">
         <header>
@@ -107,12 +107,7 @@
               type="radio"
               name="rating"
               value="5"
-              <%
-              for(rating
-              of
-              user.ratings)
-              {%
-            />
+              <% for(rating of user.ratings) {%>
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 5) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
             <label for="rating-5_<%= data[0].id %>"
@@ -123,12 +118,7 @@
               type="radio"
               name="rating"
               value="4"
-              <%
-              for(rating
-              of
-              user.ratings)
-              {%
-            />
+              <% for (rating of user.ratings) {%>
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 4) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
             <label for="rating-4_<%= data[0].id %>"
@@ -139,12 +129,7 @@
               type="radio"
               name="rating"
               value="3"
-              <%
-              for(rating
-              of
-              user.ratings)
-              {%
-            />
+              <% for (rating of user.ratings) {%>
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 3) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
             <label for="rating-3_<%= data[0].id %>"
@@ -155,12 +140,7 @@
               type="radio"
               name="rating"
               value="2"
-              <%
-              for(rating
-              of
-              user.ratings)
-              {%
-            />
+              <% for (rating of user.ratings) {%>
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 2) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
             <label for="rating-2_<%= data[0].id %>"
@@ -171,12 +151,7 @@
               type="radio"
               name="rating"
               value="1"
-              <%
-              for(rating
-              of
-              user.ratings)
-              {%
-            />
+              <% for(rating of user.ratings) {%>
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 1) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
             <label for="rating-1_<%= data[0].id %>"
@@ -188,7 +163,7 @@
             <%= data[0].created_at_pst %>
             <%= data[0].fromNow %>
           </div>
-          
+
         </footer>
       </div>
     </div>
