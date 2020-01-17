@@ -103,7 +103,7 @@
           </p>
           <form class="rating">
             <input
-              id="rating-5_<%= el.id %>"
+              id="rating-5_<%= data[0].id %>"
               type="radio"
               name="rating"
               value="5"
@@ -115,11 +115,11 @@
             />
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 5) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-5_<%= el.id %>"
+            <label for="rating-5_<%= data[0].id %>"
               ><i class="fas fa-star"></i
             ></label>
             <input
-              id="rating-4_<%= el.id %>"
+              id="rating-4_<%= data[0].id %>"
               type="radio"
               name="rating"
               value="4"
@@ -131,11 +131,11 @@
             />
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 4) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-4_<%= el.id %>"
+            <label for="rating-4_<%= data[0].id %>"
               ><i class="fas fa-star"></i
             ></label>
             <input
-              id="rating-3_<%= el.id %>"
+              id="rating-3_<%= data[0].id %>"
               type="radio"
               name="rating"
               value="3"
@@ -147,11 +147,11 @@
             />
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 3) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-3_<%= el.id %>"
+            <label for="rating-3_<%= data[0].id %>"
               ><i class="fas fa-star"></i
             ></label>
             <input
-              id="rating-2_<%= el.id %>"
+              id="rating-2_<%= data[0].id %>"
               type="radio"
               name="rating"
               value="2"
@@ -163,11 +163,11 @@
             />
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 2) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-2_<%= el.id %>"
+            <label for="rating-2_<%= data[0].id %>"
               ><i class="fas fa-star"></i
             ></label>
             <input
-              id="rating-1_<%= el.id %>"
+              id="rating-1_<%= data[0].id %>"
               type="radio"
               name="rating"
               value="1"
@@ -179,7 +179,7 @@
             />
             <% if(rating[0] == data[0].id) { %> <% if(rating[1] == 1) { %>
             <%="checked" %> <% } %> <% } %> <% } %> />
-            <label for="rating-1_<%= el.id %>"
+            <label for="rating-1_<%= data[0].id %>"
               ><i class="fas fa-star"></i
             ></label>
           </form>
