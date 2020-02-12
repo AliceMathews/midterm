@@ -13,16 +13,16 @@ Or register for your own account!
 ## Final Product
 
 Screenshot of the page on login - all resources are shown
-![Screenshot of the page on login](https://github.com/AliceMathews/scheduler/blob/master/docs/Main%20screen.png)
+![Screenshot of the page on login](https://github.com/AliceMathews/midterm/blob/master/docs/home-page.png)
 
 My Resources page
-![My resources page](https://github.com/AliceMathews/scheduler/blob/master/docs/hoverview.png)
+![My resources page](https://github.com/AliceMathews/midterm/blob/master/docs/my-resources.png)
 
 Comments page - users can add & view all comments
-![Comments page](https://github.com/AliceMathews/scheduler/blob/master/docs/form.png)
+![Comments page](https://github.com/AliceMathews/midterm/blob/master/docs/comments.png)
 
 My Profile page - users can update their details
-![Comments page](https://github.com/AliceMathews/scheduler/blob/master/docs/form.png)
+![Comments page](https://github.com/AliceMathews/midterm/blob/master/docs/my-profile.png)
 
 ## Setup
 
